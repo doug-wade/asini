@@ -10,7 +10,8 @@
     "fix": "eslint src test --fix",
     "test": "mocha -t 5000",
     "ci": "npm run lint && cross-env DEBUG_CALLS=true npm run test",
-    "prepublish": "npm run build"
+    "prepublish": "npm run snyk-protect && npm run build",
+    "snyk-protect": "snyk protect"
   },
   "repository": {
     "type": "git",
@@ -41,7 +42,8 @@
     "rimraf": "^2.4.4",
     "semver": "^5.1.0",
     "signal-exit": "^2.1.2",
-    "sync-exec": "^0.6.2"
+    "sync-exec": "^0.6.2",
+    "snyk": "^1.316.2"
   },
   "bin": {
     "asini": "./bin/asini.js"
@@ -60,5 +62,6 @@
     "eslint-plugin-flow-vars": "^0.5.0",
     "fs-extra": "^0.30.0",
     "mocha": "^2.4.5"
-  }
+  },
+  "snyk": true
 }
